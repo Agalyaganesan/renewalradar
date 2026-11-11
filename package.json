@@ -1,1 +1,22 @@
 
+{
+  "name": "renewalradar",
+  "version": "1.0.0",
+  "description": "Subscription renewal management powered by MCP",
+  "type": "module",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "engines": {
+    "node": ">=20"
+  },
+  "dependencies": {
+    "@modelcontextprotocol/sdk": "^1.0.0",
+    "express": "^5.1.0",
+    "pg": "^8.16.3",
+    "dotenv": "^16.4.7",
+    "zod": "^3.25.0"
+  }
+}
+
