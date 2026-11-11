@@ -1,0 +1,136 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>RenewalRadar | Subscription Manager</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="topbar">
+    <div class="brand">
+      <span class="brand-icon">R</span>
+      <span>RenewalRadar</span>
+    </div>
+    <span class="status">● System Online</span>
+  </header>
+
+  <main class="container">
+    <section class="welcome">
+      <div>
+        <p class="eyebrow">SUBSCRIPTION MANAGEMENT</p>
+        <h1>Your renewals, under control.</h1>
+        <p class="subtitle">Track subscriptions and stay ahead of every renewal.</p>
+      </div>
+      <button id="addBtn" class="primary-btn">+ Add subscription</button>
+    </section>
+
+    <section class="stats">
+      <article class="stat-card">
+        <p>Total subscriptions</p>
+        <h2 id="totalCount">0</h2>
+      </article>
+      <article class="stat-card">
+        <p>Active subscriptions</p>
+        <h2 id="activeCount">0</h2>
+      </article>
+      <article class="stat-card">
+        <p>Upcoming renewals</p>
+        <h2 id="upcomingCount">0</h2>
+      </article>
+      <article class="stat-card">
+        <p>Monthly spending</p>
+        <h2 id="monthlySpend">$0.00</h2>
+      </article>
+    </section>
+
+    <section class="panel">
+      <div class="panel-heading">
+        <div>
+          <h2>Your subscriptions</h2>
+          <p>Manage all your recurring payments in one place.</p>
+        </div>
+        <select id="statusFilter">
+          <option value="all">All subscriptions</option>
+          <option value="active">Active</option>
+          <option value="cancelled">Cancelled</option>
+        </select>
+      </div>
+
+      <div class="table-wrapper">
+        <table>
+          <thead>
+            <tr>
+              <th>Subscription</th>
+              <th>Provider</th>
+              <th>Amount</th>
+              <th>Billing cycle</th>
+              <th>Renewal date</th>
+              <th>Status</th>
+              <th>Actions</th>
+            </tr>
+          </thead>
+          <tbody id="subscriptionList">
+            <tr>
+              <td colspan="7" class="empty">
+                Loading subscriptions...
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+  </main>
+
+  <div id="modal" class="modal hidden">
+    <div class="modal-content">
+      <div class="modal-heading">
+        <h2 id="modalTitle">Add subscription</h2>
+        <button id="closeBtn" class="close-btn">&times;</button>
+      </div>
+
+      <form id="subscriptionForm">
+        <input type="hidden" id="editId">
+
+        <label>Subscription name</label>
+        <input id="name" required placeholder="Netflix">
+
+        <label>Provider</label>
+        <input id="provider" placeholder="Netflix Inc.">
+
+        <label>Amount</label>
+        <input id="amount" type="number" min="0" step="0.01" required>
+
+        <label>Currency</label>
+        <select id="currency">
+          <option value="USD">USD</option>
+          <option value="INR">INR</option>
+          <option value="EUR">EUR</option>
+          <option value="GBP">GBP</option>
+        </select>
+
+        <label>Billing cycle</label>
+        <select id="billingCycle">
+          <option value="monthly">Monthly</option>
+          <option value="quarterly">Quarterly</option>
+          <option value="yearly">Yearly</option>
+          <option value="weekly">Weekly</option>
+        </select>
+
+        <label>Renewal date</label>
+        <input id="renewalDate" type="date" required>
+
+        <label>Notes</label>
+        <textarea id="notes" placeholder="Additional details"></textarea>
+
+        <button class="primary-btn full-width" type="submit">
+          Save subscription
+        </button>
+      </form>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
